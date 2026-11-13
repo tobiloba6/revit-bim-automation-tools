@@ -3,10 +3,10 @@ A collection of Dynamo and Python scripts designed to eliminate repetitive manua
 
 ---
 
-## 01. Batch Room & Sheet Name Standardizer
-* **Problem:** Manually auditing and standardizing capitalization across 200+ room tags and drawing sheets takes 30–45 minutes per project submission and introduces human typos.
-* **Solution:** A 6-node Dynamo script that queries all Room/Sheet elements from the Revit database, transforms string parameters to office-standard uppercase, and writes the updates back to the model in a single transaction.
-* **Impact:** Reduced standardization time from ~30 minutes to under 2 seconds across 200+ rooms.
+## 01. Batch Room Standardizer & BIM QA/QC Excel Auditor
+* **Problem:** Manually standardizing 200+ room tags takes 30+ minutes per submission, while unplaced "ghost rooms" silently bloat the Revit database and corrupt BoQ area schedules.
+* **Solution:** An automated Dynamo QA/QC pipeline that enforces uppercase naming standards across all Room elements, filters active rooms from unplaced/redundant rooms (`Area == ""`), and exports a two-tab Excel audit report (`Room_QA` and `Ghost_Rooms_To_Purge`).
+* **Impact:** Reduced room standardization and model health auditing from ~45 minutes to under 3 seconds; isolated 185+ redundant room elements in initial testing.
 
-### Dynamo Graph
+### Dynamo Graph (V2 with Excel QA Pipeline)
 ![Batch Room Name Standardizer Graph](01_Batch_Room_Name_Standardizer_Graph.png)
